@@ -1,10 +1,7 @@
 ﻿using Computer_EPAM_Task.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Computer_EPAM_Task.Computer
 {
@@ -86,5 +83,7 @@ namespace Computer_EPAM_Task.Computer
 
             throw new Exception("При считывании данных о оперативной памяти произошла ошибка");
         }
+
+        public void RunProgram(string progName) => Process.Start(progName);
     }
 }

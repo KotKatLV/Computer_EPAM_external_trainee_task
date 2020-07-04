@@ -4,9 +4,7 @@ using Computer_EPAM_Task.Interfaces;
 using Computer_EPAM_Task.Models;
 using Microsoft.Win32;
 using System;
-using System.Diagnostics;
 using System.IO;
-using System.Management;
 using System.Media;
 using System.Windows;
 using System.Windows.Media;
@@ -219,7 +217,7 @@ namespace Computer_EPAM_Task
 
                 if (openFileDialog.ShowDialog() == true)
                 {
-                    Process.Start(openFileDialog.FileName);
+                    computer.RunProgram(openFileDialog.FileName);
                 }
             }
             catch(Exception exc)
@@ -450,7 +448,6 @@ namespace Computer_EPAM_Task
                 CPUDockPanel.Visibility = _collapsed;
                 GPUDockPanel.Visibility = _collapsed;
                 RAMDockPanel.Visibility = _visible;
-
 
                 RAMCapacity.Text = computer.GetInfoAboutRAM().Item1;
                 maxFreq.Text = computer.GetInfoAboutRAM().Item2;
