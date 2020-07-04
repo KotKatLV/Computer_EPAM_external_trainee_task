@@ -26,6 +26,7 @@ namespace Computer_EPAM_Task
         private const Visibility _collapsed = Visibility.Collapsed;
         private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
         private readonly IRepository<Video> _videos = new VideoRepository();
+        private readonly IComputer computer = new Computer.Computer();
 
         public MainWindow() => InitializeComponent();
 
@@ -369,20 +370,19 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void InfoAboutOS_Click(object sender, RoutedEventArgs e)
         {
-            grid.Visibility = _collapsed;
-            CPUDockPanel.Visibility = _hidden;
-            GPUDockPanel.Visibility = _hidden;
-            RAMDockPanel.Visibility = _hidden;
-            OSDockPanel.Visibility = _visible;
-
-            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption, Version FROM Win32_OperatingSystem"))
+            try
             {
-                foreach (ManagementObject item in searcher.Get())
-                {
-                    nameOS.Text = item["Caption"].ToString();
-                    versionOS.Text = item["Version"].ToString();
-                    break;
-                }
+                grid.Visibility = _collapsed;
+                CPUDockPanel.Visibility = _hidden;
+                GPUDockPanel.Visibility = _hidden;
+                RAMDockPanel.Visibility = _hidden;
+                OSDockPanel.Visibility = _visible;
+                nameOS.Text = computer.GetInfoAboutOS().Item1;
+                versionOS.Text = computer.GetInfoAboutOS().Item2;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
 
@@ -393,19 +393,20 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void InfoAboutCPU_Click(object sender, RoutedEventArgs e)
         {
-            grid.Visibility = _collapsed;
-            OSDockPanel.Visibility = _collapsed;
-            GPUDockPanel.Visibility = _hidden;
-            RAMDockPanel.Visibility = _hidden;
-            CPUDockPanel.Visibility = _visible;
-
-            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Name, NumberOfCores FROM Win32_Processor"))
+            try
             {
-                foreach (ManagementObject item in searcher.Get())
-                {
-                    nameCPU.Text = item["Name"].ToString();
-                    numOfCPUCores.Text = item["NumberOfCores"].ToString();
-                }
+                grid.Visibility = _collapsed;
+                OSDockPanel.Visibility = _collapsed;
+                GPUDockPanel.Visibility = _hidden;
+                RAMDockPanel.Visibility = _hidden;
+                CPUDockPanel.Visibility = _visible;
+
+                nameCPU.Text = computer.GetInfoAboutCPU().Item1;
+                numOfCPUCores.Text = computer.GetInfoAboutCPU().Item2;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
 
@@ -416,32 +417,22 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void InfoAboutGraphicsCard_Click(object sender, RoutedEventArgs e)
         {
-            grid.Visibility = _collapsed;
-            OSDockPanel.Visibility = _collapsed;
-            CPUDockPanel.Visibility = _collapsed;
-            RAMDockPanel.Visibility = _collapsed;
-            GPUDockPanel.Visibility = _visible;
-
-            byte tmp = 0;
-
-            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption, VideoProcessor FROM Win32_VideoController"))
+            try
             {
-                foreach (ManagementObject item in searcher.Get())
-                {
-                    switch (tmp++)
-                    {
-                        case 0:
-                            nameIntegratedGPU.Text = item["Caption"].ToString();
-                            integratedGPUType.Text = item["VideoProcessor"].ToString();
-                            break;
-                        default:
-                            nameEmbeddedGPU.Text = item["Caption"].ToString();
-                            embeddedGPUType.Text = item["VideoProcessor"].ToString();
-                            break;
-                    }
+                grid.Visibility = _collapsed;
+                OSDockPanel.Visibility = _collapsed;
+                CPUDockPanel.Visibility = _collapsed;
+                RAMDockPanel.Visibility = _collapsed;
+                GPUDockPanel.Visibility = _visible;
 
-                }
-                tmp = 0;
+                nameIntegratedGPU.Text = computer.GetInfoAboutGPU().Item1;
+                integratedGPUType.Text = computer.GetInfoAboutGPU().Item2;
+                nameEmbeddedGPU.Text = computer.GetInfoAboutGPU().Item3;
+                embeddedGPUType.Text = computer.GetInfoAboutGPU().Item4;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
 
@@ -452,27 +443,21 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void InfoAboutRAM_Click(object sender, RoutedEventArgs e)
         {
-            grid.Visibility = _collapsed;
-            OSDockPanel.Visibility = _collapsed;
-            CPUDockPanel.Visibility = _collapsed;
-            GPUDockPanel.Visibility = _collapsed;
-            RAMDockPanel.Visibility = _visible;
-
-            double capacity = 0;
-            double freq = 0;
-
-            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Capacity, Speed FROM Win32_PhysicalMemory"))
+            try
             {
-                foreach (ManagementObject item in searcher.Get())
-                {
-                    capacity += Math.Round(Convert.ToDouble(item.Properties["Capacity"].Value) / 1024 / 1024 / 1024, 2);
-                    if (freq < Convert.ToDouble(item["Speed"].ToString().Substring(0, 4)))
-                    {
-                        freq = Convert.ToDouble(item["Speed"].ToString().Substring(0, 4));
-                    }
-                }
-                RAMCapacity.Text = capacity.ToString();
-                maxFreq.Text = freq.ToString();
+                grid.Visibility = _collapsed;
+                OSDockPanel.Visibility = _collapsed;
+                CPUDockPanel.Visibility = _collapsed;
+                GPUDockPanel.Visibility = _collapsed;
+                RAMDockPanel.Visibility = _visible;
+
+
+                RAMCapacity.Text = computer.GetInfoAboutRAM().Item1;
+                maxFreq.Text = computer.GetInfoAboutRAM().Item2;
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
     }
