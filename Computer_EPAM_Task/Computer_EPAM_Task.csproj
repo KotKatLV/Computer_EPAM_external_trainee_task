@@ -184,12 +184,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Computer\Computer.cs" />
-    <Compile Include="Computer\MySoundPlayer.cs" />
+    <Compile Include="ComputerWork\Computer.cs" />
+    <Compile Include="ComputerWork\MySoundPlayer.cs" />
+    <Compile Include="ComputerWork\PowerSocket.cs" />
+    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\BootLoaderOSKernel.cs" />
+    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheFirstLevel.cs" />
+    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheSecondLevel.cs" />
+    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheThirdLevel.cs" />
+    <Compile Include="ComputerWork\StartupShutdownStages\SystemStartup.cs" />
     <Compile Include="DataRepositories\DBRepositories\EF Core\Context\VideosContext.cs" />
     <Compile Include="DataRepositories\DBRepositories\EF Core\Repositories\VideoRepository.cs" />
+    <Compile Include="Enums\BootDevice.cs" />
     <Compile Include="Enums\VideoNames.cs" />
     <Compile Include="Interfaces\IComputer.cs" />
+    <Compile Include="Interfaces\IPCState.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISoundPlayer.cs" />
     <Compile Include="MainWindow.xaml.cs">

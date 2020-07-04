@@ -147,8 +147,13 @@ namespace Computer_EPAM_Task
         {
             try
             {
-                EventsAfterRunnigPC();
-                grid.Background = new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Img/Others/windows10.jpeg")));
+                if (computer.StartPC())
+                {
+                    EventsAfterRunnigPC();
+                    grid.Background = new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Img/Others/windows10.jpeg")));
+                }
+                else
+                    throw new Exception("Ошибка при запуске ПК");
             }
             catch(Exception exc)
             {
@@ -163,12 +168,12 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void PowerOffBtn_Click(object sender, RoutedEventArgs e)
         {
+            computer.ShutdownPC();
             EventsAfterTurningOffPC();
             powerOffMenu.IsEnabled = false;
             runProgram.IsEnabled = false;
             addInfo.IsEnabled = false;
             infoAboutPC.IsEnabled = false;
-
         }
 
         /// <summary>

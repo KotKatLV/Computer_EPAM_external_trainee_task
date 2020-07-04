@@ -1,5 +1,9 @@
-﻿using Computer_EPAM_Task.Interfaces;
+﻿using Computer_EPAM_Task.ComputerWork;
+using Computer_EPAM_Task.ComputerWork.StartupShutdownStages;
+using Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders;
+using Computer_EPAM_Task.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management;
 
@@ -9,6 +13,7 @@ namespace Computer_EPAM_Task.Computer
     {
         private ManagementObjectSearcher searcher;
         private readonly ISoundPlayer soundPlayer = new MySoundPlayer();
+        private List<IPCState> components = new List<IPCState> { new SystemStartup(), new LoaderOfTheFirstLevel(), new LoaderOfTheSecondLevel(), new LoaderOfTheThirdLevel(), new BootLoaderOSKernel() };
 
         public Computer() { }
 
@@ -96,5 +101,25 @@ namespace Computer_EPAM_Task.Computer
         public void PlayShutDownSound() => soundPlayer.PlayShutDownSound();
 
         public void RunProgram(string progName) => Process.Start(progName);
+
+        public bool StartPC()
+        {
+            // Включаем элекртичество
+            PowerSocket.SetElectricityState(true);
+
+            // Начинаем процесс включения ПК 
+            return components.TrueForAll(c => c.TurnOn());
+        }
+
+        public bool ShutdownPC()
+        {
+            // Начинаем процесс выключения ПК 
+            components.TrueForAll(c => c.TurnOff());
+
+            // Выключаем электричество
+            PowerSocket.SetElectricityState(false);
+
+            return true;
+        }
     }
 }
