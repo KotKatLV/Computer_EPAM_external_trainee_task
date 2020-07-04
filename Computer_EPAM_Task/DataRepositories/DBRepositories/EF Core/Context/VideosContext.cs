@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Context
 {
-    class VideosContext : DbContext
+    internal class VideosContext : DbContext
     {
         public DbSet<Video> Videos { get; set; }
 

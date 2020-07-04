@@ -56,7 +56,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Computer_EPAM_Task.Computer.Computer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1.5" Y="2.5" Width="1.5" />
+    <Position X="0.5" Y="2.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AQAAAASAAGQAAAAAAASAAAEAAACAAAAAAAAACAAEAAA=</HashCode>
       <FileName>ComputerWork\Computer.cs</FileName>

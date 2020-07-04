@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Repositories
 {
-    class VideoRepository : IRepository<Video>
+    internal class VideoRepository : IRepository<Video>
     {
         private readonly DbContextOptionsBuilder<VideosContext> _optionsBuilder = new DbContextOptionsBuilder<VideosContext>();
         private readonly DbContextOptions<VideosContext> _options;
@@ -96,11 +96,15 @@ namespace Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Repositorie
             }
         }
 
-        public async Task<IEnumerable<Video>> GetAllAsync()
+        public async Task<IEnumerable<Video>> TryGetAllAsync()
         {
             using (_db = new VideosContext(_options))
             {
-                return await _db.Videos.AsNoTracking().ToListAsync();
+                if(_db.Videos.Count() > 0)
+                {
+                    return await _db.Videos.AsNoTracking().ToListAsync();
+                }
+                throw new Exception("Не удалось найти видео");
             }
         }
     }

@@ -13,6 +13,6 @@ namespace Computer_EPAM_Task.Interfaces
 
         Task<T> TryGetAsync(int id);
 
-        Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<T>> TryGetAllAsync();
     }
 }
