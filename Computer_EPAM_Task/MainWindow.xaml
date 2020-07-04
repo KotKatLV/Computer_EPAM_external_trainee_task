@@ -1,0 +1,364 @@
+﻿<Window x:Class="Computer_EPAM_Task.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Computer_EPAM_Task"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        mc:Ignorable="d"
+        Title="Проект &quot;Компьютер&quot;" Height="450" Width="800" FontSize="15"
+        Icon="Img\PCImage\pc.png" Loaded="Window_Loaded">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF99C5C5" Offset="0"/>
+            <GradientStop Color="#FFCD8282" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    
+    <DockPanel>
+        
+        <Menu DockPanel.Dock="Top" FontSize="14">
+
+            <MenuItem x:Name="powerOffMenu"
+                      IsEnabled="False"
+                      Click="PowerOffBtn_Click">
+                <MenuItem.Header>
+                    <TextBlock Text="Выключить" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="#FFF70A0A"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="Img\PowerButtons\powerOff.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem x:Name="runProgram"
+                      IsEnabled="False"
+                      Click="RunProgram_Click">
+                <MenuItem.Header>
+                    <TextBlock Text="Запустить программу" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="#FFF70A0A"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="Img\Others\runProgram.png"/>
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem x:Name="infoAboutPC"
+                      IsEnabled="False">
+                <MenuItem.Header>
+                    <TextBlock Text="Данные аппаратной части ПЭВМ" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="#FFF70A0A"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="Img\PCImage\pc2.png"/>
+                </MenuItem.Icon>
+
+                <MenuItem x:Name="infoAboutOS" Click="InfoAboutOS_Click">
+                    <MenuItem.Header>
+                        <TextBlock Text="Сведения о операционной системе" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="LightSeaGreen"/>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
+                        <Image Source="Img\PCComponents\os.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="infoAboutCPU" Click="InfoAboutCPU_Click">
+                    <MenuItem.Header>
+                        <TextBlock Text="Сведения о центральном процессоре" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="LightSeaGreen"/>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
+                        <Image Source="Img\PCComponents\cpu.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="infoAboutGraphicsCard" Click="InfoAboutGraphicsCard_Click">
+                    <MenuItem.Header>
+                        <TextBlock Text="Сведения о видеокарте" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="LightSeaGreen"/>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
+                        <Image Source="Img\PCComponents\gpu.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+
+                <MenuItem x:Name="infoAboutRAM" Click="InfoAboutRAM_Click">
+                    <MenuItem.Header>
+                        <TextBlock Text="Сведения о оперативной памяти" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="LightSeaGreen"/>
+                    </MenuItem.Header>
+                    <MenuItem.Icon>
+                        <Image Source="Img\PCComponents\ram.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+
+            <MenuItem x:Name="addInfo"
+                      IsEnabled="False">
+                <MenuItem.Header>
+                    <TextBlock Text="Дополнительная информация" 
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center" 
+                               Foreground="#FFF70A0A"/>
+                </MenuItem.Header>
+                <MenuItem.Icon>
+                    <Image Source="Img\Others\info.png"/>
+                </MenuItem.Icon>
+                
+                <MenuItem Header="Устройство компьютера" Click="MenuItem_Click"/>
+                <MenuItem Header="Работа процессора" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Работа видеокарты" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Работа ОЗУ" Click="MenuItem_Click_3"/>
+                <MenuItem Header="Работа операционной системы" Click="MenuItem_Click_4"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid x:Name="grid">
+            <Image x:Name="winLoad"
+               gif:ImageBehavior.AnimatedSource="Video/WindowsBoot.gif"
+               Stretch="Fill"
+               Visibility="Hidden"/>
+
+            <Button x:Name="powerOnBtn" 
+                    Margin="278,101,282,91" 
+                    ToolTip="Включение персонального компьютера"
+                    Click="Button_Click"
+                    Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="Img\PowerButtons\powerOn.png"/>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Image x:Name="winShuttigDown"
+               gif:ImageBehavior.AnimatedSource="Video/shuttingDown.gif"
+               Stretch="Fill"
+               Visibility="Hidden"/>
+            <WebBrowser HorizontalAlignment="Left" 
+                        x:Name="webBrowser"
+                        Height="345" 
+                        Margin="27,26,0,0"
+                        VerticalAlignment="Top"
+                        Width="736" Visibility="Hidden"/>
+        </Grid>
+        
+        <DockPanel x:Name="OSDockPanel" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Image Source="Img\OS\linuxOS.png" Width="250" Height="150"/>
+                <Image Source="Img\OS\macOS.png" Width="250" Height="150"/>
+                <Image Source="Img\OS\windowsOS.png" Width="250" Height="150"/>
+            </StackPanel>
+
+            <Grid DockPanel.Dock="Bottom" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Наименование операционной системы" 
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+                <TextBlock x:Name="nameOS"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock x:Name="versionOS"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Версия операционной системы"
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+            </Grid>
+        </DockPanel>
+        
+        <DockPanel x:Name="CPUDockPanel" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Image Source="Img\CPU\amd.png" Width="390" Height="150"/>
+                <Image Source="Img\CPU\intel.png" Width="390" Height="150"/>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Наименование центрального процессора" 
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+                <TextBlock x:Name="nameCPU"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock x:Name="numOfCPUCores"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Количество ядер"
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+            </Grid>
+        </DockPanel>
+        
+        <DockPanel x:Name="GPUDockPanel" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
+                <Image Source="Img\GPU\amd.png" Width="125" Height="150"/>
+                <Image Source="Img\GPU\intel.png" Width="125" Height="150"/>
+                <Image Source="Img\GPU\asus.png" Width="125" Height="150"/>
+                <Image Source="Img\GPU\gigabyte.png" Width="125" Height="150"/>
+                <Image Source="Img\GPU\nvidia.png" Width="125" Height="150"/>
+                <Image Source="Img\GPU\msi.png" Width="125" Height="150"/>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Наименование интегрированной видеокарты" 
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+                <TextBlock x:Name="nameIntegratedGPU"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock x:Name="integratedGPUType"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Тип графического процессора"
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Наименование встроенной видеокарты" 
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+                <TextBlock x:Name="nameEmbeddedGPU"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock x:Name="embeddedGPUType"
+                           Grid.Row="3"
+                           Grid.Column="1"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="Тип графического процессора"
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+            </Grid>
+        </DockPanel>
+        
+        <DockPanel x:Name="RAMDockPanel" Visibility="Visible">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top" HorizontalAlignment="Center">
+                <Image Source="Img\RAM\corsair.png" Width="190" Height="150"/>
+                <Image Source="Img\RAM\kingston.png" Width="190" Height="150"/>
+                <Image Source="Img\RAM\patriot.png" Width="190" Height="150"/>
+                <Image Source="Img\RAM\samsung.png" Width="190" Height="150"/>
+            </StackPanel>
+            <Grid DockPanel.Dock="Bottom" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Объем, ГБ" 
+                           TextAlignment="Center" 
+                           Margin="0,20"/>
+                <TextBlock x:Name="RAMCapacity"
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           TextAlignment="Center" 
+                           VerticalAlignment="Center"/>
+                <TextBlock x:Name="maxFreq"
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           TextAlignment="Center" 
+                           Margin="0,20"
+                           Text="Максимальная тактовая частота, МГц">
+                </TextBlock>
+            </Grid>
+        </DockPanel>
+        
+    </DockPanel>
+    
+</Window>
