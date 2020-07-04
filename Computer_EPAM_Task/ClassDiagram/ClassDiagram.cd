@@ -1,127 +1,127 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.BootLoaderOSKernel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.BootLoaderOSKernel" BaseTypeListCollapsed="true">
+    <Position X="5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAQAAAAAAABAA=</HashCode>
       <FileName>ComputerWork\StartupShutdownStages\Loaders\BootLoaderOSKernel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.LoaderOfTheFirstLevel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="2.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.LoaderOfTheFirstLevel" BaseTypeListCollapsed="true">
+    <Position X="9" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheFirstLevel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.LoaderOfTheSecondLevel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="5.75" Y="3.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.LoaderOfTheSecondLevel" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheSecondLevel.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.LoaderOfTheThirdLevel" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="7.5" Y="3.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders.LoaderOfTheThirdLevel" BaseTypeListCollapsed="true">
+    <Position X="8" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQAAAgAAAAAA=</HashCode>
       <FileName>ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheThirdLevel.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
-  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.SystemStartup" Collapsed="true">
-    <Position X="6.75" Y="1.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.ComputerWork.StartupShutdownStages.SystemStartup">
+    <Position X="6.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAQAAAAAAAACA=</HashCode>
       <FileName>ComputerWork\StartupShutdownStages\SystemStartup.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.ComputerWork.PowerSocket" Collapsed="true">
-    <Position X="1.5" Y="3.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.ComputerWork.PowerSocket">
+    <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAIAA=</HashCode>
       <FileName>ComputerWork\PowerSocket.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Computer_EPAM_Task.Computer.MySoundPlayer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="3.25" Y="2.5" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.Computer.MySoundPlayer" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAEAAA=</HashCode>
       <FileName>ComputerWork\MySoundPlayer.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.Computer.Computer" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="2.5" Width="2.5" />
+  <Class Name="Computer_EPAM_Task.Computer.Computer" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAASAAGQAAAAAAASAAAEAAACAAAAAAAAACAAEAAA=</HashCode>
+      <HashCode>AQAAAACAAGUAIAAAAAAAAAEAAACAAAAIAAAACAAEAAA=</HashCode>
       <FileName>ComputerWork\Computer.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
+    <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Context.VideosContext" Collapsed="true">
-    <Position X="11.5" Y="1.75" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Context.VideosContext">
+    <Position X="13" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAg=</HashCode>
       <FileName>DataRepositories\DBRepositories\EF Core\Context\VideosContext.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Repositories.VideoRepository" Collapsed="true">
-    <Position X="9.75" Y="1.75" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Repositories.VideoRepository">
+    <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgEAgAAACQAAAAAAAAAAIAAAAAAIAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAgAAACQAAAAAAAAAAIAAAAAAMAAACAAAAAAAAAAA=</HashCode>
       <FileName>DataRepositories\DBRepositories\EF Core\Repositories\VideoRepository.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Computer_EPAM_Task.Models.Video" Collapsed="true">
-    <Position X="4.5" Y="5.25" Width="1.5" />
+  <Class Name="Computer_EPAM_Task.Models.Video">
+    <Position X="4.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Video.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="Computer_EPAM_Task.Interfaces.IComputer" Collapsed="true">
-    <Position X="7.75" Y="4.75" Width="1.5" />
+  <Interface Name="Computer_EPAM_Task.Interfaces.IComputer">
+    <Position X="12.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAACAAGQAAAAAAAAAAAEAAACAAAAAAAAACAAEAAA=</HashCode>
       <FileName>Interfaces\IComputer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Computer_EPAM_Task.Interfaces.IPCState" Collapsed="true">
-    <Position X="9.5" Y="4.75" Width="1.5" />
+  <Interface Name="Computer_EPAM_Task.Interfaces.IPCState">
+    <Position X="10.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IPCState.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Computer_EPAM_Task.Interfaces.IRepository&lt;T&gt;" Collapsed="true">
-    <Position X="7.75" Y="5.5" Width="1.5" />
+  <Interface Name="Computer_EPAM_Task.Interfaces.IRepository&lt;T&gt;">
+    <Position X="7.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AgEAAAAACAAAAAAAAAAAIAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AgAAAAAACAAAAAAAAAAAIAAAAAAEAAACAAAAAAAAAAA=</HashCode>
       <FileName>Interfaces\IRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Computer_EPAM_Task.Interfaces.ISoundPlayer" Collapsed="true">
-    <Position X="9.5" Y="5.5" Width="1.5" />
+  <Interface Name="Computer_EPAM_Task.Interfaces.ISoundPlayer">
+    <Position X="9" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAEAAA=</HashCode>
       <FileName>Interfaces\ISoundPlayer.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Enum Name="Computer_EPAM_Task.Enums.BootDevice" Collapsed="true">
-    <Position X="10.25" Y="3.5" Width="1.5" />
+  <Enum Name="Computer_EPAM_Task.Enums.BootDevice">
+    <Position X="10.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAQCAAAAAAAAAAAAAAAAAAQQAAAAAAAAA=</HashCode>
       <FileName>Enums\BootDevice.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Computer_EPAM_Task.Enums.VideoNames" Collapsed="true">
-    <Position X="12" Y="3.5" Width="1.5" />
+  <Enum Name="Computer_EPAM_Task.Enums.VideoNames">
+    <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAIAAABAAAAAABEAAAA=</HashCode>
       <FileName>Enums\VideoNames.cs</FileName>
