@@ -8,8 +8,15 @@ namespace Computer_EPAM_Task.Computer
     internal class Computer : IComputer
     {
         private ManagementObjectSearcher searcher;
+        private readonly ISoundPlayer soundPlayer = new MySoundPlayer();
 
         public Computer() { }
+
+        public Computer(ManagementObjectSearcher searcher, ISoundPlayer soundPlayer)
+        {
+            this.searcher = searcher ?? throw new ArgumentNullException(nameof(searcher));
+            this.soundPlayer = soundPlayer ?? throw new ArgumentNullException(nameof(soundPlayer));
+        }
 
         public (string, string) GetInfoAboutCPU()
         {
@@ -83,6 +90,10 @@ namespace Computer_EPAM_Task.Computer
 
             throw new Exception("При считывании данных о оперативной памяти произошла ошибка");
         }
+
+        public void PlayLoadSound() => soundPlayer.PlayLoadSound();
+
+        public void PlayShutDownSound() => soundPlayer.PlayShutDownSound();
 
         public void RunProgram(string progName) => Process.Start(progName);
     }

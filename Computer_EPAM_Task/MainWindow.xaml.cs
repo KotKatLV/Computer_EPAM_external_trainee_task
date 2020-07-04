@@ -5,7 +5,6 @@ using Computer_EPAM_Task.Models;
 using Microsoft.Win32;
 using System;
 using System.IO;
-using System.Media;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -22,9 +21,9 @@ namespace Computer_EPAM_Task
         private const Visibility _hidden = Visibility.Hidden;
         private const Visibility _visible = Visibility.Visible;
         private const Visibility _collapsed = Visibility.Collapsed;
-        private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
         private readonly IRepository<Video> _videos = new VideoRepository();
         private readonly IComputer computer = new Computer.Computer();
+        private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
 
         public MainWindow() => InitializeComponent();
 
@@ -71,11 +70,7 @@ namespace Computer_EPAM_Task
         {
             try
             {
-                using (SoundPlayer sp = new SoundPlayer())
-                {
-                    sp.Stream = Properties.Resources.loadMus;
-                    sp.Play();
-                }
+                computer.PlayLoadSound();
             }
             catch (TimeoutException te)
             {
@@ -102,11 +97,7 @@ namespace Computer_EPAM_Task
         {
             try
             {
-                using (SoundPlayer sp = new SoundPlayer())
-                {
-                    sp.Stream = Properties.Resources.shutDownMus;
-                    sp.Play();
-                }
+                computer.PlayShutDownSound();
             }
             catch (TimeoutException te)
             {

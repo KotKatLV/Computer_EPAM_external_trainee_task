@@ -1,6 +1,6 @@
 ﻿namespace Computer_EPAM_Task.Interfaces
 {
-    interface IComputer
+    internal interface IComputer
     {
         // Сведения о ОС
         (string, string) GetInfoAboutOS();
@@ -14,6 +14,13 @@
         // Сведения о ОЗУ
         (string, string) GetInfoAboutRAM();
 
+        // Запуск программы
         void RunProgram(string progName);
+
+        // Проигрвание музыки включения ОС
+        void PlayLoadSound();
+
+        // Проигрвание музыки выключения ОС
+        void PlayShutDownSound();
     }
 }

@@ -185,11 +185,13 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Computer\Computer.cs" />
+    <Compile Include="Computer\MySoundPlayer.cs" />
     <Compile Include="DataRepositories\DBRepositories\EF Core\Context\VideosContext.cs" />
     <Compile Include="DataRepositories\DBRepositories\EF Core\Repositories\VideoRepository.cs" />
     <Compile Include="Enums\VideoNames.cs" />
     <Compile Include="Interfaces\IComputer.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\ISoundPlayer.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
