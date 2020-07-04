@@ -8,16 +8,16 @@ namespace Computer_EPAM_Task.Computer
 {
     internal class MySoundPlayer : ISoundPlayer
     {
-        private SoundPlayer soundPlayer;
+        private SoundPlayer _soundPlayer;
 
         public void PlayLoadSound()
         {
             try
             {
-                using (soundPlayer = new SoundPlayer())
+                using (_soundPlayer = new SoundPlayer())
                 {
-                    soundPlayer.Stream = Properties.Resources.loadMus;
-                    soundPlayer.Play();
+                    _soundPlayer.Stream = Properties.Resources.loadMus;
+                    _soundPlayer.Play();
                 }
             }
             catch (TimeoutException te)
@@ -42,10 +42,10 @@ namespace Computer_EPAM_Task.Computer
         {
             try
             {
-                using (soundPlayer = new SoundPlayer())
+                using (_soundPlayer = new SoundPlayer())
                 {
-                    soundPlayer.Stream = Properties.Resources.shutDownMus;
-                    soundPlayer.Play();
+                    _soundPlayer.Stream = Properties.Resources.shutDownMus;
+                    _soundPlayer.Play();
                 }
             }
             catch (TimeoutException te)

@@ -11,23 +11,23 @@ namespace Computer_EPAM_Task.Computer
 {
     internal class Computer : IComputer
     {
-        private ManagementObjectSearcher searcher;
-        private readonly ISoundPlayer soundPlayer = new MySoundPlayer();
-        private List<IPCState> components = new List<IPCState> { new SystemStartup(), new LoaderOfTheFirstLevel(), new LoaderOfTheSecondLevel(), new LoaderOfTheThirdLevel(), new BootLoaderOSKernel() };
+        private ManagementObjectSearcher _searcher;
+        private readonly ISoundPlayer _soundPlayer = new MySoundPlayer();
+        private readonly List<IPCState> _components = new List<IPCState> { new SystemStartup(), new LoaderOfTheFirstLevel(), new LoaderOfTheSecondLevel(), new LoaderOfTheThirdLevel(), new BootLoaderOSKernel() };
 
         public Computer() { }
 
         public Computer(ManagementObjectSearcher searcher, ISoundPlayer soundPlayer)
         {
-            this.searcher = searcher ?? throw new ArgumentNullException(nameof(searcher));
-            this.soundPlayer = soundPlayer ?? throw new ArgumentNullException(nameof(soundPlayer));
+            _searcher = searcher ?? throw new ArgumentNullException(nameof(searcher));
+            _soundPlayer = soundPlayer ?? throw new ArgumentNullException(nameof(soundPlayer));
         }
 
         public (string, string) GetInfoAboutCPU()
         {
-            using (searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Name, NumberOfCores FROM Win32_Processor"))
+            using (_searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Name, NumberOfCores FROM Win32_Processor"))
             {
-                foreach (ManagementObject item in searcher.Get())
+                foreach (ManagementObject item in _searcher.Get())
                 {
                     return (item["Name"].ToString(), item["NumberOfCores"].ToString());
                 }
@@ -42,9 +42,9 @@ namespace Computer_EPAM_Task.Computer
             string tmp1 = null;
             string tmp2 = null;
 
-            using (searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption, VideoProcessor FROM Win32_VideoController"))
+            using (_searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption, VideoProcessor FROM Win32_VideoController"))
             {
-                foreach (ManagementObject item in searcher.Get())
+                foreach (ManagementObject item in _searcher.Get())
                 {
                     switch (tmp++)
                     {
@@ -63,9 +63,9 @@ namespace Computer_EPAM_Task.Computer
 
         public (string, string) GetInfoAboutOS()
         {
-            using (searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption, Version FROM Win32_OperatingSystem"))
+            using (_searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption, Version FROM Win32_OperatingSystem"))
             {
-                foreach (ManagementObject item in searcher.Get())
+                foreach (ManagementObject item in _searcher.Get())
                 {
                     return (item["Caption"].ToString(), item["Version"].ToString());
                 }
@@ -79,9 +79,9 @@ namespace Computer_EPAM_Task.Computer
             double capacity = 0;
             double freq = 0;
 
-            using (searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Capacity, Speed FROM Win32_PhysicalMemory"))
+            using (_searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Capacity, Speed FROM Win32_PhysicalMemory"))
             {
-                foreach (ManagementObject item in searcher.Get())
+                foreach (ManagementObject item in _searcher.Get())
                 {
                     capacity += Math.Round(Convert.ToDouble(item.Properties["Capacity"].Value) / 1024 / 1024 / 1024, 2);
                     if (freq < Convert.ToDouble(item["Speed"].ToString().Substring(0, 4)))
@@ -96,9 +96,9 @@ namespace Computer_EPAM_Task.Computer
             throw new Exception("При считывании данных о оперативной памяти произошла ошибка");
         }
 
-        public void PlayLoadSound() => soundPlayer.PlayLoadSound();
+        public void PlayLoadSound() => _soundPlayer.PlayLoadSound();
 
-        public void PlayShutDownSound() => soundPlayer.PlayShutDownSound();
+        public void PlayShutDownSound() => _soundPlayer.PlayShutDownSound();
 
         public void RunProgram(string progName) => Process.Start(progName);
 
@@ -108,13 +108,13 @@ namespace Computer_EPAM_Task.Computer
             PowerSocket.SetElectricityState(true);
 
             // Начинаем процесс включения ПК 
-            return components.TrueForAll(c => c.TurnOn());
+            return _components.TrueForAll(c => c.TurnOn());
         }
 
         public bool ShutdownPC()
         {
             // Начинаем процесс выключения ПК 
-            components.TrueForAll(c => c.TurnOff());
+            _components.TrueForAll(c => c.TurnOff());
 
             // Выключаем электричество
             PowerSocket.SetElectricityState(false);
