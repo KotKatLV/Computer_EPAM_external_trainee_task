@@ -22,7 +22,7 @@ namespace Computer_EPAM_Task
         private const Visibility _visible = Visibility.Visible;
         private const Visibility _collapsed = Visibility.Collapsed;
         private readonly IRepository<Video> _videos = new VideoRepository();
-        private readonly IComputer computer = new Computer.Computer();
+        private readonly IComputer _computer = new Computer.Computer();
         private readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
 
         public MainWindow() => InitializeComponent();
@@ -70,7 +70,7 @@ namespace Computer_EPAM_Task
         {
             try
             {
-                computer.PlayLoadSound();
+                _computer.PlayLoadSound();
             }
             catch (TimeoutException te)
             {
@@ -97,7 +97,7 @@ namespace Computer_EPAM_Task
         {
             try
             {
-                computer.PlayShutDownSound();
+                _computer.PlayShutDownSound();
             }
             catch (TimeoutException te)
             {
@@ -147,7 +147,7 @@ namespace Computer_EPAM_Task
         {
             try
             {
-                if (computer.StartPC())
+                if (_computer.StartPC())
                 {
                     EventsAfterRunnigPC();
                     grid.Background = new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Img/Others/windows10.jpeg")));
@@ -168,7 +168,7 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void PowerOffBtn_Click(object sender, RoutedEventArgs e)
         {
-            computer.ShutdownPC();
+            _computer.ShutdownPC();
             EventsAfterTurningOffPC();
             powerOffMenu.IsEnabled = false;
             runProgram.IsEnabled = false;
@@ -213,7 +213,7 @@ namespace Computer_EPAM_Task
 
                 if (openFileDialog.ShowDialog() == true)
                 {
-                    computer.RunProgram(openFileDialog.FileName);
+                    _computer.RunProgram(openFileDialog.FileName);
                 }
             }
             catch(Exception exc)
@@ -371,8 +371,8 @@ namespace Computer_EPAM_Task
                 GPUDockPanel.Visibility = _hidden;
                 RAMDockPanel.Visibility = _hidden;
                 OSDockPanel.Visibility = _visible;
-                nameOS.Text = computer.GetInfoAboutOS().Item1;
-                versionOS.Text = computer.GetInfoAboutOS().Item2;
+                nameOS.Text = _computer.GetInfoAboutOS().Item1;
+                versionOS.Text = _computer.GetInfoAboutOS().Item2;
             }
             catch(Exception exc)
             {
@@ -395,8 +395,8 @@ namespace Computer_EPAM_Task
                 RAMDockPanel.Visibility = _hidden;
                 CPUDockPanel.Visibility = _visible;
 
-                nameCPU.Text = computer.GetInfoAboutCPU().Item1;
-                numOfCPUCores.Text = computer.GetInfoAboutCPU().Item2;
+                nameCPU.Text = _computer.GetInfoAboutCPU().Item1;
+                numOfCPUCores.Text = _computer.GetInfoAboutCPU().Item2;
             }
             catch(Exception exc)
             {
@@ -419,10 +419,10 @@ namespace Computer_EPAM_Task
                 RAMDockPanel.Visibility = _collapsed;
                 GPUDockPanel.Visibility = _visible;
 
-                nameIntegratedGPU.Text = computer.GetInfoAboutGPU().Item1;
-                integratedGPUType.Text = computer.GetInfoAboutGPU().Item2;
-                nameEmbeddedGPU.Text = computer.GetInfoAboutGPU().Item3;
-                embeddedGPUType.Text = computer.GetInfoAboutGPU().Item4;
+                nameIntegratedGPU.Text = _computer.GetInfoAboutGPU().Item1;
+                integratedGPUType.Text = _computer.GetInfoAboutGPU().Item2;
+                nameEmbeddedGPU.Text = _computer.GetInfoAboutGPU().Item3;
+                embeddedGPUType.Text = _computer.GetInfoAboutGPU().Item4;
             }
             catch(Exception exc)
             {
@@ -445,8 +445,8 @@ namespace Computer_EPAM_Task
                 GPUDockPanel.Visibility = _collapsed;
                 RAMDockPanel.Visibility = _visible;
 
-                RAMCapacity.Text = computer.GetInfoAboutRAM().Item1;
-                maxFreq.Text = computer.GetInfoAboutRAM().Item2;
+                RAMCapacity.Text = _computer.GetInfoAboutRAM().Item1;
+                maxFreq.Text = _computer.GetInfoAboutRAM().Item2;
             }
             catch(Exception exc)
             {
