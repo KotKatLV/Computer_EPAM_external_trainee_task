@@ -185,19 +185,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ComputerWork\Computer.cs" />
+    <Compile Include="ComputerWork\LoadShutdownProcess\BootLoader.cs" />
+    <Compile Include="ComputerWork\LoadShutdownProcess\Kernel.cs" />
+    <Compile Include="ComputerWork\LoadShutdownProcess\LoadMBR.cs" />
+    <Compile Include="ComputerWork\LoadShutdownProcess\PanicState.cs" />
+    <Compile Include="ComputerWork\LoadShutdownProcess\POST.cs" />
     <Compile Include="ComputerWork\MySoundPlayer.cs" />
     <Compile Include="ComputerWork\PowerSocket.cs" />
-    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\BootLoaderOSKernel.cs" />
-    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheFirstLevel.cs" />
-    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheSecondLevel.cs" />
-    <Compile Include="ComputerWork\StartupShutdownStages\Loaders\LoaderOfTheThirdLevel.cs" />
-    <Compile Include="ComputerWork\StartupShutdownStages\SystemStartup.cs" />
     <Compile Include="DataRepositories\DBRepositories\EF Core\Context\VideosContext.cs" />
     <Compile Include="DataRepositories\DBRepositories\EF Core\Repositories\VideoRepository.cs" />
-    <Compile Include="Enums\BootDevice.cs" />
     <Compile Include="Enums\VideoNames.cs" />
     <Compile Include="Interfaces\IComputer.cs" />
-    <Compile Include="Interfaces\IPCState.cs" />
+    <Compile Include="Interfaces\IComputerState.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\ISoundPlayer.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -227,7 +226,7 @@
     <None Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="ClassDiagram\ClassDiagram.cd" />
+    <None Include="ClassDiagram\Computer_EPAM_task_cd.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -303,7 +302,7 @@
   <ItemGroup>
     <Content Include="Audio\loadMus.wav" />
     <Content Include="Audio\shutDownMus.wav" />
-    <Resource Include="ClassDiagram\ClassDiagram.png" />
+    <Resource Include="ClassDiagram\Computer_EPAM_task_cd.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />

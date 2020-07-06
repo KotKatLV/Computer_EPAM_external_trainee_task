@@ -1,19 +1,17 @@
 ﻿using Computer_EPAM_Task.ComputerWork;
-using Computer_EPAM_Task.ComputerWork.StartupShutdownStages;
-using Computer_EPAM_Task.ComputerWork.StartupShutdownStages.Loaders;
+using Computer_EPAM_Task.ComputerWork.LoadShutdownProcess;
 using Computer_EPAM_Task.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management;
 
 namespace Computer_EPAM_Task.Computer
 {
-    internal class Computer : IComputer
+    internal class Computer : IComputer, IComputerState
     {
         private ManagementObjectSearcher _searcher;
         private readonly ISoundPlayer _soundPlayer = new MySoundPlayer();
-        private readonly List<IPCState> _components = new List<IPCState> { new SystemStartup(), new LoaderOfTheFirstLevel(), new LoaderOfTheSecondLevel(), new LoaderOfTheThirdLevel(), new BootLoaderOSKernel() };
+        private IComputerState state;
 
         public Computer() { }
 
@@ -108,18 +106,31 @@ namespace Computer_EPAM_Task.Computer
             PowerSocket.SetElectricityState(true);
 
             // Начинаем процесс включения ПК 
-            return _components.TrueForAll(c => c.TurnOn());
+            return load() is Kernel;
         }
 
         public bool ShutdownPC()
         {
-            // Начинаем процесс выключения ПК 
-            _components.TrueForAll(c => c.TurnOff());
-
             // Выключаем электричество
             PowerSocket.SetElectricityState(false);
-
             return true;
+        }
+
+        public IComputerState load()
+        {
+            state = new POST();
+
+            while (true)
+            {
+                state = state.load();
+                System.Threading.Thread.Sleep(200);
+
+                if (state is Kernel)
+                {
+                    state = state.load();
+                    return state is Kernel ? state : state = state.load();
+                }
+            }
         }
     }
 }
