@@ -2,7 +2,6 @@
 using Computer_EPAM_Task.ComputerWork.LoadShutdownProcess;
 using Computer_EPAM_Task.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management;
 
@@ -106,11 +105,11 @@ namespace Computer_EPAM_Task.Computer
             PowerSocket.SetElectricityState(true);
 
             // Начинаем процесс включения ПК 
-            return boot() is Kernel;
+            return Boot() is Kernel;
            
         }
 
-        public IComputerState boot()
+        public IComputerState Boot()
         {
             state = new POST();
             while (true)
