@@ -2,17 +2,17 @@
 using Computer_EPAM_Task.ComputerWork.LoadShutdownProcess;
 using Computer_EPAM_Task.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Management;
 
 namespace Computer_EPAM_Task.Computer
 {
-    internal class Computer : IComputer, IComputerState
+    internal class Computer : IComputer
     {
         private ManagementObjectSearcher _searcher;
         private readonly ISoundPlayer _soundPlayer = new MySoundPlayer();
         private IComputerState state;
-
         public Computer() { }
 
         public Computer(ManagementObjectSearcher searcher, ISoundPlayer soundPlayer)
@@ -106,20 +106,13 @@ namespace Computer_EPAM_Task.Computer
             PowerSocket.SetElectricityState(true);
 
             // Начинаем процесс включения ПК 
-            return load() is Kernel;
+            return boot() is Kernel;
+           
         }
 
-        public bool ShutdownPC()
-        {
-            // Выключаем электричество
-            PowerSocket.SetElectricityState(false);
-            return true;
-        }
-
-        public IComputerState load()
+        public IComputerState boot()
         {
             state = new POST();
-
             while (true)
             {
                 state = state.load();
@@ -128,9 +121,23 @@ namespace Computer_EPAM_Task.Computer
                 if (state is Kernel)
                 {
                     state = state.load();
-                    return state is Kernel ? state : state = state.load();
+                    if(state is Kernel)
+                    {
+                        return state;
+                    }
+                    else
+                    {
+                        state = state.load();
+                    }
                 }
             }
+        }
+
+        public bool ShutdownPC()
+        {
+            // Выключаем электричество
+            PowerSocket.SetElectricityState(false);
+            return true;
         }
     }
 }

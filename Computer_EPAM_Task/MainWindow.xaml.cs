@@ -168,19 +168,12 @@ namespace Computer_EPAM_Task
         /// <param name="e"></param>
         private void PowerOffBtn_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                _computer.ShutdownPC();
-                EventsAfterTurningOffPC();
-                powerOffMenu.IsEnabled = false;
-                runProgram.IsEnabled = false;
-                addInfo.IsEnabled = false;
-                infoAboutPC.IsEnabled = false;
-            }
-            catch(Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            _computer.ShutdownPC();
+            EventsAfterTurningOffPC();
+            powerOffMenu.IsEnabled = false;
+            runProgram.IsEnabled = false;
+            addInfo.IsEnabled = false;
+            infoAboutPC.IsEnabled = false;
         }
 
         /// <summary>
