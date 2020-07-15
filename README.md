@@ -25,3 +25,8 @@ Without revealing the details of this operation to the client.
 * .NET Framework 4.7.2
 * Windows Presentation Foundation
 * Entity Framework Core
+
+## Applied patterns
+* Repository pattern
+* The singleton pattern
+* State machine pattern
