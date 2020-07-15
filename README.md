@@ -1,15 +1,22 @@
-# Проект "Компьютер"
-## В проекте должен быть реализован "компьютер", который выполняет основные функции.
-К примеру,
-* включение
-* выключение
-* запуск ОС
-* запуск программы и т.д, 
+# The Project "Computer"
+## The project must implement a "computer" that performs the main functions.
+For example,
+* turning on the computer
+* turning off the computer
+* starting the operating system
+* launching the program, etc
 
-Не раскрывая клиенту деталей выполнения этой операции.
-В проекте должен быть реализован "компьютер", который выполняет основные функции, к примеру, включение, выключение, запуск ОС, запуск программы и т.д, 
-не раскрывая клиенту деталей выполнения этой операции.
+Without revealing the details of this operation to the client.
 
-## Установка
-Поскольку для взаимодействия с БД(SQL Server) используется ORM - Entity Framework Core, в файле _appsettings.json_ необходимо указать корректную для вас строку подключения, 
-также как и в файле VideosContext.cs.
+## System requirements
+* Windows 7/10
+* .NET Framework 4(x32/x64)
+
+## Startup
+* in the *_appsettings.json_ file* you have to specify the correct connection string(SQL Server) for you, just like in the *VideosContext.cs*
+* update NuGet packets
+* build solution
+* run application
+
+## Main window view
+
