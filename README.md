@@ -19,4 +19,9 @@ Without revealing the details of this operation to the client.
 * run application
 
 ## Main window view
+![Image alt](https://github.com/KotKatLV/EPAM_External_Trainee_Test_Task_Konstantin_Kapatkov/blob/master/MainWindow.PNG)
 
+## Technology stack used
+* .NET Framework 4.7.2
+* Windows Presentation Foundation
+* Entity Framework Core
