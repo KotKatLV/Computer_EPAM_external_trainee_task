@@ -141,8 +141,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Запуск ПК
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -164,8 +164,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Выключение ПК
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void PowerOffBtn_Click(object sender, RoutedEventArgs e)
         {
             _computer.ShutdownPC();
@@ -200,8 +200,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Запуск программы
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void RunProgram_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -225,7 +225,7 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Показ видео в webBrowser
         /// </summary>
-        /// <param name="url"></param>
+        /// <param name="url">URL</param>
         private void ShowFrameInBrowser(string url)
         {
             try
@@ -242,13 +242,13 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Создание разметки для браузера
         /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        /// <param name="url">URL</param>
+        /// <returns>HTML text</returns>
         private string CreateHTMLForWebBrowser(string url)
         {
             string html = "<html><head>";
             html += "<meta content='IE=Edge' http-equiv='X-UA-Compatible'/>";
-            html += $"<iframe id='video' src= '{url}' width='716' height='320' frameborder='0' allowfullscreen></iframe>";
+            html += $"<iframe id='video' src= '{url}' width='905' height='408' frameborder='0' allowfullscreen></iframe>";
             html += "</body></html>";
             return html;
         }
@@ -256,8 +256,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Устройство компьютера
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private async void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -288,8 +288,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Работа процессора
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private async void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             try
@@ -306,8 +306,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Работа видеокарты
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private async void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             try
@@ -324,8 +324,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Работа ОЗУ
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private async void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
             try
@@ -342,8 +342,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Работа ОС
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private async void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
             try
@@ -360,8 +360,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Сведения о ОС
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void InfoAboutOS_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -383,8 +383,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Сведения о ЦП
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void InfoAboutCPU_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -407,8 +407,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Сведения о видеокарте
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void InfoAboutGraphicsCard_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -433,8 +433,8 @@ namespace Computer_EPAM_Task
         /// <summary>
         /// Сведения о ОЗУ
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">RoutedEventArgs object</param>
+        /// <param name="e">Sender</param>
         private void InfoAboutRAM_Click(object sender, RoutedEventArgs e)
         {
             try

@@ -11,7 +11,7 @@ namespace Computer_EPAM_Task.DataRepositories.DBRepositories.EF_Core.Context
 
         public VideosContext(DbContextOptions<VideosContext> options) : base(options) => Database.EnsureCreated();
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(@"Server=MyPC;Database=Videos;Trusted_Connection=True;");
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Videos;Trusted_Connection=True;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
