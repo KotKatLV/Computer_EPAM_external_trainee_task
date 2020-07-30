@@ -13,7 +13,7 @@ Without revealing the details of this operation to the client.
 * .NET Framework 4(x32/x64)
 
 ## Startup
-* in the *_appsettings.json_ file* you have to specify the correct connection string(SQL Server) for you, just like in the *VideosContext.cs*
+* in the *_appsettings.json_* and *_VideosContext.cs_* you have to specify the correct connection string(SQL Server) for you
 * update NuGet packets
 * build solution
 * run application
