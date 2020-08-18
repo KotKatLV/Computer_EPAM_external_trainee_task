@@ -1,4 +1,4 @@
-# GSTU .NET Summer 2020 (external)
+# .NET Summer 2020 (external)
 ## Task Interview Net 2020
 ### The Project "Computer"
 #### The project must implement a "computer" that performs the main functions.
